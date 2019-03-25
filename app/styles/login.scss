@@ -1,0 +1,12 @@
+.login-container {
+  padding-top: 150px;
+}
+
+input.form-control {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  &:focus {
+    border-width: 2px;
+    box-shadow: none;
+  }
+}
