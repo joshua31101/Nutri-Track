@@ -1,4 +1,5 @@
 import EmberRouter from '@ember/routing/router';
+import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 import config from './config/environment';
 
 const Router = EmberRouter.extend({
@@ -12,4 +13,4 @@ Router.map(function() {
   this.route('register');
 });
 
-export default Router;
+export default Router.extend(UnauthenticatedRouteMixin);

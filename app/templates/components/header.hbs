@@ -1,9 +1,13 @@
 <nav class="navbar navbar-light bg-light static-top">
   <div class="container">
-    <a class="navbar-brand" href="/">Nutri-Track</a>
+    {{#link-to "index" class="navbar-brand"}}Nutri-Track{{/link-to}}
     <div class="text-right">
-      <a class="btn btn-primary" href="/register">Register</a>
-      <a class="btn btn-primary" href="/login">Login</a>
+      {{#if session.isAuthenticated}}
+        <a href="#" {{action "invalidateSession"}}>Logout</a>
+      {{else}}
+        {{#link-to "register" class="btn btn-primary"}}Register{{/link-to}}
+        {{#link-to "login" class="btn btn-primary"}}Login{{/link-to}}
+      {{/if}}
     </div>
   </div>
 </nav>
