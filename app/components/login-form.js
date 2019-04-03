@@ -6,10 +6,11 @@ export default Component.extend({
 
   actions: {
     authenticate() {
-      const credentials = this.getProperties('email', 'password');
+      const { email, password } = this.getProperties('email', 'password');
+
       if (this._validateFields()) {
         this.get('session')
-          .authenticate('authenticator:jwt', credentials)
+          .authenticate('authenticator:jwt', email, password)
           .catch(reason => {
             this.set('errors', [reason.responseJSON && reason.responseJSON.error]);
           });

@@ -1,9 +1,8 @@
-import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
 import config from '../config/environment';
-const { $: { ajax } } = Ember;
 import { run } from '@ember/runloop';
 import { Promise } from 'rsvp';
+import $ from 'jquery';
 
 export default Base.extend({
   tokenEndpoint: `${config.host}/auth/login`,
@@ -18,8 +17,7 @@ export default Base.extend({
     });
   },
 
-  authenticate(creds) {
-    const { email, password } = creds;
+  authenticate(email, password) {
     const data = JSON.stringify({
       email,
       password,
@@ -32,7 +30,7 @@ export default Base.extend({
     };
 
     return new Promise((resolve, reject) => {
-      ajax(requestOptions).then(res => {
+      $.ajax(requestOptions).then(res => {
         run(() => {
           resolve(res);
         });
