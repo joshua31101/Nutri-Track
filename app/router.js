@@ -11,6 +11,9 @@ Router.map(function() {
   this.route('index', { path: '/' });
   this.route('login');
   this.route('register');
+  this.route('authenticated', () => {
+    this.route('my-foods');
+  });
 });
 
 export default Router.extend(UnauthenticatedRouteMixin);
