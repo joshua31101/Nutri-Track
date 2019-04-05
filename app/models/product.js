@@ -8,4 +8,5 @@ export default DS.Model.extend({
   gtin_upc: DS.attr('number'),
   manufacturer: DS.attr('string'),
   ingredients_english: DS.attr('string'),
+  nutrients: DS.attr(),
 });
