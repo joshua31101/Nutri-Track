@@ -7,5 +7,5 @@
   {{else}}
     <p>No food found</p>
   {{/if}}
-  <button class="btn btn-primary">Upload receipt</button>
+  {{file-upload url=uploadUrl addProducts=(action "addProducts")}}
 </div>
