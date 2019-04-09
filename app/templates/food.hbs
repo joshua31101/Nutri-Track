@@ -1,0 +1,18 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h3>{{this.model.long_name}}</h3>
+    {{primary-nutri-info model=this.model servingSize=servingSize}}
+  </div>
+</div>
+
+<div class="container col-md-6">
+  <div class="mt-3">
+    {{all-nutrients model=this.model.nutrients}}
+  </div>
+
+  <div class="mt-3">
+    {{nutri-health-effect model=this.model}}
+  </div>
+
+  {{#link-to "my-foods" class="btn btn-secondary my-3"}}Go back{{/link-to}}
+</div>

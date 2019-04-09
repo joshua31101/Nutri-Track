@@ -14,6 +14,6 @@ export default Controller.extend({
       for (let i = 0; i < products.length; i++) {
         this.store.push(this.store.normalize('product', products[i]));
       }
-    }
+    },
   },
 });

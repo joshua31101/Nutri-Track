@@ -45,6 +45,7 @@
     "ember-uploader": "^2.0.0",
     "ember-welcome-page": "^3.2.0",
     "eslint-plugin-ember": "^5.2.0",
+    "highcharts": "^7.1.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
     "sass": "^1.17.3"

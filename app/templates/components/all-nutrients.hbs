@@ -1,0 +1,12 @@
+<div class="card text-center">
+  <div class="card-header">
+    Nutritions
+  </div>
+  <ul class="list-group list-group-flush">
+    {{#each this.model as |nutrient|}}
+      <li class="list-group-item">
+        {{nutrient.name}} {{nutrient.value}}{{nutrient.unit}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<span class="grade {{generalGrade}} mb-1 d-inline-block"><b>{{grade}}</b></span>
+{{#if servingSize}}
+  <p class="mb-1">Serving: {{servingSize.Serving_Size}}{{servingSize.Serving_Size_UOM}} or {{servingSize.Household_Serving_Size}} {{servingSize.Household_Serving_Size_UOM}}</p>
+{{/if}}
+<p class="m-0">Calories: {{calories}}</p>
+<p class="m-0">Carbs: {{carbs}}g</p>
+<p class="m-0">Fat: {{fat}}g</p>
+<p class="m-0">Protein: {{protein}}g</p>

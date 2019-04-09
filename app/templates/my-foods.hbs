@@ -1,11 +1,25 @@
-<div class="container">
-  <h1>My Foods</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">My Foods</h1>
+    <p class="lead">Upload your grocery receipt to find nutrition and health information.</p>
+  </div>
+</div>
+
+<div class="container col-md-6">
+  {{#if this.model.length}}
+    {{nutrient-info model=this.model}}
+  {{/if}}
+
   {{#if this.model.length}}
     {{#each this.model as |food|}}
-      <p>{{food.long_name}}</p>
+      {{#link-to "food" food class="d-block"}}{{food.long_name}}{{/link-to}}
     {{/each}}
   {{else}}
     <p>No food found</p>
   {{/if}}
-  {{file-upload url=uploadUrl addProducts=(action "addProducts")}}
+  <label for="">Upload a receipt: </label>
+  {{file-upload
+    url=uploadUrl
+    addProducts=(action "addProducts")
+  }}
 </div>

@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header text-center">
+    Nutrition Health Facts
+  </div>
+  <div class="list-group">
+    {{#each ingredients as |ing index|}}
+    <button class="btn list-group-item text-center" type="button" data-toggle="collapse" data-target="#ingredient-{{index}}"
+      aria-expanded="false" aria-controls="ingredient-{{index}}">
+      {{ing.name}}
+    </button>
+    <div class="collapse" id="ingredient-{{index}}">
+      <div class="card card-body">
+        <p><b>Description: </b>{{ing.desc}}</p>
+        <p><b>Found in: </b>{{ing.found_in}}</p>
+        <p><b>Allergies: </b>{{ing.allergy}}</p>
+        <p><b>Possible health effects: </b>{{ing.possible_health_effects}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="list-group p-3">
+    <p class="m-0"><b>Ingredients: </b>{{ingredients_desc}}</p>
+  </div>
+</div>

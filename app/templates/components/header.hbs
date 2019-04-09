@@ -3,10 +3,11 @@
     {{#link-to "index" class="navbar-brand"}}Nutri-Track{{/link-to}}
     <div class="text-right">
       {{#if session.isAuthenticated}}
-        <a href="#" {{action "invalidateSession"}}>Logout</a>
+        {{#link-to "my-foods" class="ml-2"}}My Foods{{/link-to}}
+        <a href="#" class="ml-2" {{action "invalidateSession"}}>Logout</a>
       {{else}}
-        {{#link-to "register" class="btn btn-primary"}}Register{{/link-to}}
-        {{#link-to "login" class="btn btn-primary"}}Login{{/link-to}}
+        {{#link-to "register" class="btn btn-primary ml-2"}}Register{{/link-to}}
+        {{#link-to "login" class="btn btn-primary ml-2"}}Login{{/link-to}}
       {{/if}}
     </div>
   </div>

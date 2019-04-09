@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('register');
   this.route('authenticated', () => {
     this.route('my-foods');
+    this.route('food', { path: '/food/:food_id' });
   });
 });
 
