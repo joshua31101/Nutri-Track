@@ -8,4 +8,5 @@ export default DS.Model.extend({
   found_in: DS.attr('string'),
   possible_health_effects: DS.attr('string'),
   allergy: DS.attr('string'),
+  grade: DS.attr('string'),
 });

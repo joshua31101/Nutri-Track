@@ -6,7 +6,7 @@
     {{#each ingredients as |ing index|}}
     <button class="btn list-group-item text-center" type="button" data-toggle="collapse" data-target="#ingredient-{{index}}"
       aria-expanded="false" aria-controls="ingredient-{{index}}">
-      {{ing.name}}
+      <span class="grade float-left {{ing.grade}}"><b>{{ing.grade}}</b></span> {{ing.name}}
     </button>
     <div class="collapse" id="ingredient-{{index}}">
       <div class="card card-body">
