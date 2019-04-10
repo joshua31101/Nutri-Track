@@ -4,9 +4,10 @@
   </div>
   <div class="list-group">
     {{#each ingredients as |ing index|}}
-    <button class="btn list-group-item text-center" type="button" data-toggle="collapse" data-target="#ingredient-{{index}}"
+    <button class="btn list-group-item text-left" type="button" data-toggle="collapse" data-target="#ingredient-{{index}}"
       aria-expanded="false" aria-controls="ingredient-{{index}}">
-      <span class="grade float-left {{ing.grade}}"><b>{{ing.grade}}</b></span> {{ing.name}}
+      <span class="grade float-left {{ing.grade}}"><b>{{ing.grade}}</b></span>
+      <span class="food-name pl-3">{{ing.name}}</span>
     </button>
     <div class="collapse" id="ingredient-{{index}}">
       <div class="card card-body">
