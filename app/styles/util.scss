@@ -18,3 +18,20 @@
 .G {
   background-color: #3dc120;
 }
+
+.tooltip-inner {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ccc;
+}
+
+.tooltip.show {
+  opacity:1!important;
+}
+
+.arrow {
+  color: #fff !important;
+  &::before {
+    border-top-color: #ccc !important;
+  }
+}
