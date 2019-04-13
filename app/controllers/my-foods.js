@@ -15,5 +15,14 @@ export default Controller.extend({
         this.store.push(this.store.normalize('product', products[i]));
       }
     },
+
+    deleteProduct(product) {
+      product.destroyRecord({
+        adapterOptions: {
+          uid: this.get('session.data.authenticated.uid'),
+          product_id: product.get('id'),
+        },
+      });
+    }
   },
 });

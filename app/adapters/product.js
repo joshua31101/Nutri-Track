@@ -6,9 +6,20 @@ export default ApplicationAdapter.extend({
     if (snapshot.adapterOptions.uid) {
       url = this.buildURL('user', '', snapshot, 'findAll');
       url += `/${snapshot.adapterOptions.uid}/products`;
-      return this.ajax(url, 'GET');
+    } else {
+      url = this.buildURL('product', '', snapshot, 'findAll');
     }
-    url = this.buildURL('product', '', snapshot, 'findAll');
     return this.ajax(url, 'GET');
+  },
+
+  deleteRecord(store, type, snapshot) {
+    let url = '';
+    if (snapshot.adapterOptions.uid) {
+      url = this.buildURL('user', '', snapshot, 'deleteRecord');
+      url += `/${snapshot.adapterOptions.uid}/products/${snapshot.adapterOptions.product_id}`;
+    } else {
+      url = this.buildURL('product', '', snapshot, 'deleteRecord');
+    }
+    return this.ajax(url, 'DELETE');
   },
 });

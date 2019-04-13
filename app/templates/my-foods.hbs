@@ -12,7 +12,12 @@
 
   {{#if this.model.length}}
     {{#each this.model as |food|}}
-      {{#link-to "food" food class="d-block"}}{{food.long_name}}{{/link-to}}
+      <div>
+        {{#link-to "food" food}}{{food.long_name}}{{/link-to}}
+        <button type="button" class="btn btn-danger px-2 py-0 ml-1" {{action "deleteProduct" food}}>
+          <h6 class="m-0">X</h6>
+        </button>
+      </div>
     {{/each}}
   {{else}}
     <p>No food found</p>
