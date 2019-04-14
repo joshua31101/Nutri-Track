@@ -1,0 +1,19 @@
+<div class="card mt-3">
+  <div class="card-header text-center">
+    <b>{{if recommendedFoods.length recommendedFoods.length ""}} Recommended foods</b> based on your purchases
+  </div>
+  <ul class="list-group list-group-flush">
+    {{#if recommendedFoods.length}}
+      {{#each recommendedFoods as |food|}}
+        <li class="list-group-item">
+          <span class="grade {{food.generalGrade}} mb-1 d-inline-block"><b>{{food.grade}}</b></span>
+          {{#link-to "food" food}}{{food.long_name}}{{/link-to}}
+        </li>
+      {{/each}}
+    {{else}}
+      <li class="list-group-item">
+        <p>No food recommendations found</p>
+      </li>
+    {{/if}}
+  </ul>
+</div>

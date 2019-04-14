@@ -11,17 +11,21 @@
   {{/if}}
 
   {{#if this.model.length}}
-    {{#each this.model as |food|}}
-      <div>
-        {{#link-to "food" food}}{{food.long_name}}{{/link-to}}
-        <button type="button" class="btn btn-danger px-2 py-0 ml-1" {{action "deleteProduct" food}}>
-          <h6 class="m-0">X</h6>
-        </button>
-      </div>
-    {{/each}}
+    <div class="mt-3">
+      {{#each this.model as |food|}}
+        <p class="m-0">
+          {{#link-to "food" food}}{{food.long_name}}{{/link-to}}
+          <button type="button" class="btn btn-danger px-2 py-0 ml-1" {{action "deleteProduct" food}}>
+            <h6 class="m-0">X</h6>
+          </button>
+        </p>
+      {{/each}}
+    </div>
   {{else}}
     <p>No food found</p>
   {{/if}}
+
+  {{recommended-food}}
 
   <label for="">Upload a receipt: </label>
   {{file-upload

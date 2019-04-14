@@ -23,6 +23,6 @@ export default Controller.extend({
           product_id: product.get('id'),
         },
       });
-    }
+    },
   },
 });
