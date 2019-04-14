@@ -9,8 +9,15 @@ export default FileField.extend({
     const addProducts = this.addProducts;
 
     if (files) {
+      let inputElem = this.element;
+      let spinner = inputElem.parentElement.querySelector('.spinner-grow');
+      inputElem.classList.add('d-none');
+      spinner.classList.remove('d-none')
+
       uploader.upload(files[0]);
       uploader.on('didUpload', function(e) {
+        inputElem.classList.remove('d-none');
+        spinner.classList.add('d-none');
         addProducts(e.products);
       });
     }

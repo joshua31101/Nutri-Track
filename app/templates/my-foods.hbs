@@ -22,9 +22,13 @@
   {{else}}
     <p>No food found</p>
   {{/if}}
+
   <label for="">Upload a receipt: </label>
   {{file-upload
     url=uploadUrl
     addProducts=(action "addProducts")
   }}
+  <div class="spinner-grow text-primary d-none" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
