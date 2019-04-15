@@ -6,6 +6,7 @@ import config from '../config/environment';
 export default Controller.extend({
   session: service('session'),
   recipe: service('recipe'),
+  foodRecommended: service('food-recommended'),
   uploadUrl: computed('session', function() {
     return `${config.host}/${config.namespace}/users/${this.session.data.authenticated.uid}/upload-receipt`;
   }),
@@ -16,6 +17,7 @@ export default Controller.extend({
         this.store.push(this.store.normalize('product', products[i]));
       }
       this._updateRecipes(products);
+      this._updateRecommendedFoods();
     },
 
     deleteProduct(product) {
@@ -42,4 +44,14 @@ export default Controller.extend({
       this.set('recipes', recipes);
     });
   },
+
+  _updateRecommendedFoods() {
+    this.get('foodRecommended.actions.getRecommendedFoods')(
+      this.get('session.data.authenticated.uid'),
+      this.get('store')
+    )
+    .then(recommendedFoods => {
+      this.set('recommendedFoods', recommendedFoods);
+    });
+  }
 });
