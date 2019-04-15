@@ -3,24 +3,19 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   session: service(),
+  recipe: service('recipe'),
   store: service(),
 
   init() {
     this._super(...arguments);
 
-    let products = this.get('products').toArray();
-    if (products.length) {
-      let ingredients = products.map(p => p.long_name).join(',');
-      return this.get('store')
-        .findAll('recipe', {
-          adapterOptions: {
-            uid: this.get('session.data.authenticated.uid'),
-            ingredients,
-          },
-        })
-        .then(recipes => {
-          this.set('recipes', recipes);
-        });
-    }
+    this.get('recipe.actions.getRecipes')(
+      this.get('products'),
+      this.get('session.data.authenticated.uid'),
+      this.get('store')
+    )
+    .then(recipes => {
+      this.set('recipes', recipes);
+    });
   },
 });
