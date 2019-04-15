@@ -1,0 +1,26 @@
+<div class="card mt-3">
+  <div class="card-header text-center">
+    <b>{{if recipes.length recipes.length ""}} Recipes</b> based on your purchases
+  </div>
+  <ul class="list-group list-group-flush">
+    {{#if recipes.length}}
+      {{#each recipes as |recipe|}}
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-3 text-center">
+              <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
+            </div>
+            <div class="col-sm-9 m-auto">
+              <h6>{{recipe.title}}</h6>
+              <p>{{recipe.ingredients}}</p>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    {{else}}
+      <li class="list-group-item">
+        <p>No recipes found</p>
+      </li>
+    {{/if}}
+  </ul>
+</div>
