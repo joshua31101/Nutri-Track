@@ -7,6 +7,7 @@ export default FileField.extend({
       url: this.get('url')
     });
     const addProducts = this.addProducts;
+    const displayErrorMsg = this.displayErrorMsg;
 
     if (files) {
       let inputElem = this.element;
@@ -19,6 +20,12 @@ export default FileField.extend({
         inputElem.classList.remove('d-none');
         spinner.classList.add('d-none');
         addProducts(e.products);
+      });
+
+      uploader.on('didError', function(xhr, status, error) {
+        inputElem.classList.remove('d-none');
+        spinner.classList.add('d-none');
+        displayErrorMsg();
       });
     }
   },
