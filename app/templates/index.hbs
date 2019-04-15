@@ -4,7 +4,11 @@
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <h1 class="m-5">Track your foods right from your grocery receipt</h1>
-        <a href="/register" class="btn btn-secondary">Join now</a>
+        {{#if isAuthenticated}}
+          {{#link-to "my-foods" class="btn btn-secondary"}}My Foods{{/link-to}}
+        {{else}}
+          {{#link-to "register" class="btn btn-secondary"}}Join now{{/link-to}}
+        {{/if}}
       </div>
     </div>
   </div>
