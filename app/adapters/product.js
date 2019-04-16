@@ -12,6 +12,12 @@ export default ApplicationAdapter.extend({
     return this.ajax(url, 'GET');
   },
 
+  createRecord(store, type, snapshot) {
+    let url = this.buildURL('user', '', snapshot, 'createRecord');
+    url += `/${snapshot.adapterOptions.uid}/products/${snapshot.adapterOptions.productId}`;
+    return this.ajax(url, 'POST');
+  },
+
   deleteRecord(store, type, snapshot) {
     let url = '';
     if (snapshot.adapterOptions.uid) {

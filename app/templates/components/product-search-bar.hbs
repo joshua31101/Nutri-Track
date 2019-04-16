@@ -1,0 +1,16 @@
+<div class="input-group">
+  {{input
+    value=query
+    key-up=(action "searchProduct" query)
+    class="form-control"
+    placeholder="Search"}}
+  <div class="input-result-container w-100">
+    {{#each searchResults as |product|}}
+      <button
+        class="result-box-button m-0 py-2 px-3 d-block w-100 text-left"
+        {{action "addProductToUser" product}}>
+        {{product.long_name}}
+      </button>
+    {{/each}}
+  </div>
+</div>

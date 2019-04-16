@@ -1,7 +1,11 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">My Foods</h1>
-    <p class="lead">Upload your grocery receipt to find nutrition and health information.</p>
+    <p class="lead"><b>Upload your grocery receipt</b> or <b>search</b> to find nutrition and health information.</p>
+    {{product-search-bar
+      searchResults=[]
+      updateRecipes=(action "updateRecipes")
+      updateRecommendedFoods=(action "updateRecommendedFoods")}}
   </div>
 </div>
 

@@ -1,5 +1,4 @@
 import Service from '@ember/service';
-import scoreCalculator from '../utils/score-calculator';
 
 export default Service.extend({
   actions: {
@@ -9,10 +8,7 @@ export default Service.extend({
           adapterOptions: {
             uid,
           },
-        })
-        .then(recommendedFoods => {
-          scoreCalculator(recommendedFoods.toArray());
-        })
+        });
     },
   },
 });

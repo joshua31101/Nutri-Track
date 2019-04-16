@@ -1,0 +1,21 @@
+.input-result-container {
+  position: absolute;
+  background-color: #fff;
+  top: 38px;
+  z-index: 9;
+  max-height: 220px;
+  overflow: scroll;
+  cursor: pointer;
+}
+
+.result-box-button {
+  border-bottom: 1px solid #e9ecef;
+  &:hover {
+    background-color: #d8eaff;
+  }
+}
+
+.list-group.list-group-flush {
+  max-height: 500px;
+  overflow: scroll;
+}
