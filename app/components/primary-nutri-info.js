@@ -33,6 +33,9 @@ export default Component.extend({
   },
 
   _setNutrientValue(nutrients) {
+    if (!nutrients) {
+      return;
+    }
     let calories = this.get('calories');
     let carbs = this.get('carbs');
     let fat = this.get('fat');

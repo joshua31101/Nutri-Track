@@ -6,6 +6,23 @@
       searchResults=[]
       updateRecipes=(action "updateRecipes")
       updateRecommendedFoods=(action "updateRecommendedFoods")}}
+
+    <div class="mt-3">
+      <label for="">Upload a receipt: </label>
+      {{file-upload
+        url=uploadUrl
+        addProducts=(action "addProducts")
+        displayErrorMsg=(action "displayErrorMsg")
+      }}
+      {{#if error}}
+        <div class="alert alert-danger" role="alert">
+          Hmm.. couldn't detect texts on the receipt. Please try searching products instead.
+        </div>
+      {{/if}}
+      <div class="spinner-grow text-primary d-none" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -32,19 +49,4 @@
   {{recipe-list products=this.model recipes=recipes}}
 
   {{recommended-food recommendedFoods=recommendedFoods}}
-
-  <label for="">Upload a receipt: </label>
-  {{file-upload
-    url=uploadUrl
-    addProducts=(action "addProducts")
-    displayErrorMsg=(action "displayErrorMsg")
-  }}
-  {{#if error}}
-    <div class="alert alert-danger" role="alert">
-      Hmm.. couldn't detect texts on the receipt. Please try searching products instead.
-    </div>
-  {{/if}}
-  <div class="spinner-grow text-primary d-none" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
 </div>
